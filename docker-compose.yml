@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8055:80"
+    networks:
+      nginxproxymanager_customnetwork:
+        ipv4_address: 172.20.0.73
+    volumes:
+      - .:/app
+
+networks:
+  nginxproxymanager_customnetwork:
+    external: true
